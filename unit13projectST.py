@@ -247,12 +247,4 @@ print("\nTable for ALG3:")
 print(table_alg3)
 
 
-# Create plots for Empirical Runtimes
-plt.plot(n_values, empirical_runtimes_alg1, label="ALG1: Empirical RT")
-plt.plot(n_values, empirical_runtimes_alg2, label="ALG2: Empirical RT")
-plt.plot(n_values, empirical_runtimes_alg3, label="ALG3: Empirical RT")
-plt.xlabel("Input Size (n)")
-plt.ylabel("Empirical RT (milliseconds)")
-plt.title("Empirical Runtimes of Algorithms")
-plt.legend()
-plt.show()
+
