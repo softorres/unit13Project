@@ -9,9 +9,21 @@ import pandas as pd
 
 
 # ALG1: Insertion Sort
-def insertion_sort(A):
+# def insertion_sort(A):
+#     start_time = time.time()
+#     for j in range(1, len(A)):
+#         key = A[j]
+#         i = j - 1
+#         while i >= 0 and A[i] > key:
+#             A[i + 1] = A[i]
+#             i = i - 1
+#         A[i + 1] = key
+#     end_time = time.time()
+#     return (end_time - start_time) * 1000  # Convert to milliseconds
+
+def insertion_sort(A, n):
     start_time = time.time()
-    for j in range(1, len(A)):
+    for j in range(1, n):
         key = A[j]
         i = j - 1
         while i >= 0 and A[i] > key:
@@ -20,7 +32,6 @@ def insertion_sort(A):
         A[i + 1] = key
     end_time = time.time()
     return (end_time - start_time) * 1000  # Convert to milliseconds
-
 
 # ALG2: Merge Sort
 def merge_sort(A):
@@ -61,6 +72,8 @@ def merge_sort(A):
     merge_sort_recursive(A, 0, len(A) - 1)
     end_time = time.time()
     return (end_time - start_time) * 1000  # Convert to milliseconds
+
+
 
 
 # ALG3: Randomized-Select
@@ -123,7 +136,7 @@ for n in n_values:
         i = int(2 * n / 3)  # i = 2n/3
 
         # ALG1
-        runtime_alg1 = insertion_sort(test_array.copy())
+        runtime_alg1 = insertion_sort(test_array.copy(), n)
         empirical_runtimes_alg1_n.append(runtime_alg1)
 
         # ALG2
