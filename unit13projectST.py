@@ -20,36 +20,34 @@ def insertion_sort(A, n):
     end_time = time.time()
     return (end_time - start_time) * 1000  # Convert to milliseconds
 
+# ALG2: Merge Sort
+def merge_sort(A):
+    def merge(A, left, mid, right):
+        L = A[left : mid + 1]
+        R = A[mid + 1 : right + 1]
 
-# Merge function
-def merge(A, left, mid, right):
-    L = A[left:mid + 1]
-    R = A[mid + 1:right + 1]
+        i = j = 0
+        k = left
 
-    i = j = 0
-    k = left
+        while i < len(L) and j < len(R):
+            if L[i] <= R[j]:
+                A[k] = L[i]
+                i += 1
+            else:
+                A[k] = R[j]
+                j += 1
+            k += 1
 
-    while i < len(L) and j < len(R):
-        if L[i] <= R[j]:
+        while i < len(L):
             A[k] = L[i]
             i += 1
-        else:
+            k += 1
+
+        while j < len(R):
             A[k] = R[j]
             j += 1
-        k += 1
+            k += 1
 
-    while i < len(L):
-        A[k] = L[i]
-        i += 1
-        k += 1
-
-    while j < len(R):
-        A[k] = R[j]
-        j += 1
-        k += 1
-
-# Merge Sort function
-def merge_sort(A):
     def merge_sort_recursive(A, left, right):
         if left < right:
             mid = (left + right) // 2
@@ -61,8 +59,6 @@ def merge_sort(A):
     merge_sort_recursive(A, 0, len(A) - 1)
     end_time = time.time()
     return (end_time - start_time) * 1000  # Convert to milliseconds
-
-
 
 
 # ALG3: Randomized-Select
